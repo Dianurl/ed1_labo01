@@ -29,13 +29,12 @@ public class SortingTester<T extends Comparable<T>> {
         long sum = durations.stream()
                 .mapToLong(Duration::toMillis)
                 .sum();
-        double total = sum/TEST_SIZE;
-        System.out.printf("\t\tTiempo total: %s ms\n", total);
+        System.out.printf("\t\tTiempo total: %s ms\n", sum);
 
-        /*double average = durations.stream()
+        double average = durations.stream()
                 .mapToLong(Duration::toMillis)
                 .average()
                 .orElse(0);
-        System.out.printf("\t\tTiempo promedio: %s ms\n", average);*/
+        System.out.printf("\t\tTiempo promedio: %s ms\n", average);
     }
 }
