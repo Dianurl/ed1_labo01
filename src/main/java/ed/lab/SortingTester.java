@@ -23,14 +23,19 @@ public class SortingTester<T extends Comparable<T>> {
             quickSort.sort(copy);
 
             final LocalDateTime end = LocalDateTime.now();
+
             durations.add(Duration.between(start, end));
         }
+        long sum = durations.stream()
+                .mapToLong(Duration::toMillis)
+                .sum();
+        double total = sum/TEST_SIZE;
+        System.out.printf("\t\tTiempo total: %s ms\n", sum);
 
-        double average = durations.stream()
+        /*double average = durations.stream()
                 .mapToLong(Duration::toMillis)
                 .average()
                 .orElse(0);
-
-        System.out.printf("\t\tTiempo promedio: %s ms\n", average);
+        System.out.printf("\t\tTiempo promedio: %s ms\n", average);*/
     }
 }
